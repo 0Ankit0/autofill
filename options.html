@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Form Autofill - Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .alert.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-left: 4px solid #4caf50;
+    }
+
+    .alert.error {
+      background: #ffebee;
+      color: #c62828;
+      border-left: 4px solid #f44336;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .info-box h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #1976d2;
+    }
+
+    .info-box p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .info-box a {
+      color: #2196f3;
+      text-decoration: none;
+    }
+
+    .info-box a:hover {
+      text-decoration: underline;
+    }
+
+    .info-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .info-box li {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🤖 AI Form Autofill</h1>
+      <p class="subtitle">Configure your AI provider settings</p>
+    </header>
+
+    <div class="content">
+      <div id="alertBox" class="alert"></div>
+
+      <div class="info-box">
+        <h3>📝 AI Provider Setup</h3>
+        <p><strong>🤖 Chrome Built-in AI (Recommended - Free!):</strong></p>
+        <ul>
+          <li>Uses Google's Gemini Nano model running locally in Chrome</li>
+          <li>No API key required, completely free</li>
+          <li>Fast and private (runs on your device)</li>
+          <li><strong>Setup Required:</strong> Enable in Chrome flags:
+            <ol style="margin-top: 8px; margin-left: 20px;">
+              <li>Go to <code>chrome://flags/#optimization-guide-on-device-model</code></li>
+              <li>Set to "Enabled BypassPerfRequirement"</li>
+              <li>Go to <code>chrome://flags/#prompt-api-for-gemini-nano</code></li>
+              <li>Set to "Enabled"</li>
+              <li>Restart Chrome</li>
+              <li>Visit <code>chrome://components/</code> and click "Check for update" on "Optimization Guide On Device Model"</li>
+            </ol>
+          </li>
+          <li>Falls back to smart data generator if not available</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>Google Gemini API (Cloud-based):</strong></p>
+        <ul>
+          <li>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+          <li>Sign in with your Google account</li>
+          <li>Click "Create API Key" and copy the key</li>
+          <li>Free tier: 60 requests per minute</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>OpenAI API:</strong></p>
+        <ul>
+          <li>Visit <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI API Keys</a></li>
+          <li>Create an account and add payment method</li>
+          <li>Generate a new API key</li>
+          <li>Pay-as-you-go pricing</li>
+        </ul>
+      </div>
+
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="provider">AI Provider</label>
+          <p class="description">Choose which AI service to use for generating form values</p>
+          <select id="provider" name="provider">
+            <option value="chrome">🤖 Chrome Built-in AI (Free, Recommended)</option>
+            <option value="gemini">Google Gemini API (Requires Key)</option>
+            <option value="openai">OpenAI GPT-3.5 (Requires Key)</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="apiKeyGroup">
+          <label for="apiKey">API Key <span id="optionalLabel" style="color: #999;">(Optional for Chrome AI)</span></label>
+          <p class="description">Your API key is stored securely in your browser and never shared</p>
+          <input 
+            type="password" 
+            id="apiKey" 
+            name="apiKey" 
+            placeholder="Enter your API key (not needed for Chrome AI)"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Form Autofill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>🤖 AI Form Autofill</h1>
+        <button id="refreshBtn" class="icon-btn" title="Refresh fields">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C12.0711 2.5 13.9462 3.36656 15.3033 4.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M15 2.5V5H12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="statusContainer" class="status-container hidden">
+      <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <div id="loadingContainer" class="loading-container">
+      <div class="spinner"></div>
+      <p>Detecting form fields...</p>
+    </div>
+
+    <div id="noFieldsContainer" class="no-fields-container hidden">
+      <div class="empty-state">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="48" height="48" rx="4" stroke="currentColor" stroke-width="2"/>
+          <line x1="16" y1="20" x2="48" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="44" x2="36" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>No Form Fields Detected</h3>
+        <p>Navigate to a page with a form and click the refresh button.</p>
+      </div>
+    </div>
+
+    <div id="fieldsContainer" class="fields-container hidden">
+      <div class="fields-header">
+        <p class="field-count"><span id="fieldCount">0</span> fields detected</p>
+        <button id="generateBtn" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2L8 14M2 8L14 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Generate Values
+        </button>
+      </div>
+
+      <div id="fieldsList" class="fields-list"></div>
+
+      <div class="footer">
+        <button id="fillAllBtn" class="btn btn-success btn-block" disabled>
+          Fill All Fields
+        </button>
+      </div>
+    </div>
+
+    <div class="settings-link">
+      <a href="#" id="openSettings">⚙️ Settings</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
