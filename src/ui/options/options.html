@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8"/><link rel="stylesheet" href="../shared.css"/></head>
+  <body>
+    <h3>Generation Mode</h3>
+    <div class="row">
+      <label>Mode
+        <select id="mode">
+          <option value="offline-semantic">Offline Semantic (default)</option>
+          <option value="chrome-prompt">Chrome Prompt API</option>
+          <option value="external">External Provider</option>
+        </select>
+      </label>
+    </div>
+    <div class="row"><label>Locale <input id="locale" value="en-US"/></label></div>
+    <div class="row"><label><input id="chromePrompt" type="checkbox"/> Enable Chrome Prompt when available</label></div>
+    <div class="row"><label>OpenAI Key <input id="openai"/></label></div>
+    <div class="row"><label>Gemini Key <input id="gemini"/></label></div>
+    <div class="row"><label>Hugging Face Key <input id="huggingface"/></label></div>
+    <div class="row"><label>Deterministic Seed <input id="seed" type="number"/></label></div>
+    <button id="save">Save</button>
+    <div id="status" class="small"></div>
+    <script type="module" src="./options.ts"></script>
+  </body>
+</html>

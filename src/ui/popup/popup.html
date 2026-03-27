@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8"/><link rel="stylesheet" href="../shared.css"/></head>
+  <body>
+    <h3>AI Form Autofill</h3>
+    <div class="row">
+      <button id="scan">Scan Fields</button>
+      <button id="generate" disabled>Generate</button>
+      <button id="fill" disabled>Fill Unresolved</button>
+    </div>
+    <div id="summary" class="small"></div>
+    <pre id="details"></pre>
+    <div class="row"><a href="#" id="openOptions">Generation Mode settings</a></div>
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

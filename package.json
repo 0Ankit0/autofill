@@ -1,0 +1,28 @@
+{
+  "name": "offline-first-form-autofill",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.1.0",
+    "@playwright/test": "^1.53.0",
+    "@types/chrome": "^0.0.315",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "eslint": "^9.30.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.0",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.0",
+    "vitest": "^3.2.4"
+  }
+}
